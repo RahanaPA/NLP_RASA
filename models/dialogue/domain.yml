@@ -1,0 +1,123 @@
+action_factory: null
+action_names:
+- utter_greet
+- utter_goodbye
+- utter_default
+- utter_ask_howcanhelp
+- utter_ask_location
+- utter_ask_cuisine
+- utter_ask_budget
+- utter_ask_mailid
+- utter_top_restaurant
+- utter_ask_mailing
+- utter_location_not_found
+- utter_cusine_not_found
+- action_restaurant
+- action_email
+- action_check_cuisine
+- action_check_location
+- action_check_budget
+- action_check_email
+- action_restarted
+actions:
+- utter_greet
+- utter_goodbye
+- utter_default
+- utter_ask_howcanhelp
+- utter_ask_location
+- utter_ask_cuisine
+- utter_ask_budget
+- utter_ask_mailid
+- utter_top_restaurant
+- utter_ask_mailing
+- utter_location_not_found
+- utter_cusine_not_found
+- actions.ActionSearchRestaurants
+- actions.ActionSendEmail
+- actions.ActionCheckCuisine
+- actions.ActionCheckLocation
+- actions.ActionCheckBudget
+- actions.ActionCheckEmailId
+- actions.ActionRestarted
+config:
+  store_entities_as_slots: true
+entities:
+- location
+- cuisine
+- budget
+- email
+intents:
+- greet
+- affirm
+- deny
+- goodbye
+- thankyou
+- out_of_scope
+- restaurant_search
+- send_email
+slots:
+  budget:
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  cuisine:
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  email:
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  location:
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+templates:
+  utter_ask_budget:
+  - buttons:
+    - payload: Less than 300
+      title: Less than 300
+    - payload: 300 - 700
+      title: 300 - 700
+    - payload: More than 700
+      title: More than 700
+    text: 'what is the average budget for two people? '
+  utter_ask_cuisine:
+  - buttons:
+    - payload: Chinese
+      title: Chinese
+    - payload: Mexican
+      title: Mexican
+    - payload: Italian
+      title: Italian
+    - payload: American
+      title: American
+    - payload: South Indian
+      title: South Indian
+    - payload: North Indian
+      title: North Indian
+    text: what kind of cuisine would you like?
+  utter_ask_howcanhelp:
+  - text: how may I help you?
+  utter_ask_location:
+  - text: In what location?
+  utter_ask_mailid:
+  - text: Give me your email id
+  utter_ask_mailing:
+  - text: 'Should i send the details of all restuarants in email? '
+  utter_cusine_not_found:
+  - text: 'Sorry this is not a valid cuisine. please try again... '
+  utter_default:
+  - text: default message
+  - text: Sorry I do not understand what you are asking
+  utter_goodbye:
+  - text: goodbye :(
+  - text: Bye-bye
+  - text: Bye. See You
+  - text: bye have a nice day
+  - text: happy eating bye bye
+  utter_greet:
+  - text: hey there! How may i help you
+  - text: Hi, How can I help you!
+  - text: Hey, How is it going. How May I help you Today
+  - text: Hello, How can I help you Today
+  utter_location_not_found:
+  - text: 'Sorry, didn’t find any such location. Can you please tell again ? '
+  utter_top_restaurant:
+  - text: Showing top rated restaurants
